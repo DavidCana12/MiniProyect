@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Miniproject.Helper;
+using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,11 +9,13 @@ namespace Miniproject
 {
     public partial class App : Application
     {
+        static SQLiteHelper db;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+           
         }
 
         protected override void OnStart()
@@ -27,6 +31,18 @@ namespace Miniproject
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        public static SQLiteHelper SQLiteDb
+        {
+            get
+            {
+                if (db == null)
+                {
+                    db = new SQLiteHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "XamarinSQLite.db3"));
+                }
+                return db;
+            }
         }
     }
 }

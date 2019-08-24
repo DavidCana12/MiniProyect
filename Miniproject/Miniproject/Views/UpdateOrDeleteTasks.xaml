@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Miniproject.Views.UpdateOrDeleteTasks"
+              xmlns:customerVm="clr-namespace:Miniproject.ViewModels"
+             Title="Update or Delete">
+    <ContentPage.BindingContext>
+        <customerVm:TaskViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+
+
+        <Label Text="Enter Customer Name"/>
+        <Entry Text="{Binding Tasks.Description, Mode=TwoWay}"/>
+
+        <Label Text="Enter Customer Name"/>
+        <Entry Text="{Binding Tasks.Description, Mode=TwoWay}"/>
+        
+        <Label Text="Estatus"/>
+
+        <Picker Title="Select a monkey"
+        TitleColor="Red"
+        ItemsSource="{Binding StatusList}"         
+       />
+        
+        <Button Text="Update"
+            Command="{Binding UpdateCommand}"/>
+
+        <Button Text="Delete"
+            Command="{Binding RemoveCommand}"/>
+    </StackLayout>
+</ContentPage>

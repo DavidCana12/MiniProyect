@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Miniproject.Views.CreateTasks"
+             xmlns:customerVm="clr-namespace:Miniproject.ViewModels"
+             Title="Create Customer">
+    <ContentPage.BindingContext>
+        <customerVm:TaskViewModel/>
+    </ContentPage.BindingContext> 
+    <StackLayout Padding="20">
+        
+        <Label Text="Enter Description"/>
+        <Entry Text="{Binding Tasks.Description, Mode=TwoWay}"/> 
+
+        <Button Text="Create"
+          Command="{Binding CreateCommand}"/>
+    </StackLayout>
+</ContentPage>
